@@ -1,0 +1,62 @@
+<header> Customer's Information</header>
+		  <div class="wrapper">
+			<div ng-show="orderInfo">
+				<img src="{{img}}">
+				<div class="orderDescription">
+					<h3>Order Description</h3>
+					{{items.allProducts[numberOfProducts].product_description}}
+					{{items.allProducts[numberOfProducts].stock_availability}}
+					Price:{{items.allProducts[numberOfProducts].price}}
+				</div>
+				<div ng-show="customerInfo" class="orderInfo">
+				<form name="myForm">
+					First Name: 
+					<br> 
+					<input type="text" ng-model="fname" ng-minlength="2"  ng-maxlength="10" ng-pattern="/[\a-z]/" name="fname">
+					 <br>
+					 <span ng-show="myForm.fname.$error.pattern">*Please Enter the required field</span>
+					 <span ng-show="myForm.fname.$error.minlength">  *Required length is atleast 2 letters</span>
+					 <span ng-show="myForm.fname.$error.maxlength">  *Required length is atleast 10 letters</span>
+					  <br> Last Name: 
+					  <br>
+					   <input type="text" ng-model="lname" ng-minlength="2" ng-maxlength="10" ng-pattern="/[\a-z]/" name="lname">
+					<br>
+					<span ng-show="myForm.lname.$error.pattern">*Please Enter the required field</span>
+					 <span ng-show="myForm.lname.$error.minlength">  *Required length is atleast 2 letters</span> 
+					 <span ng-show="myForm.lname.$error.maxlength">  *Required length is atleast 10 letters</span>
+					 <br>
+					Credit Info
+					 <br> 
+					 <input type="text" ng-model="creditCaardInfo" ng-minlength="16" ng-maxlength="16" ng-pattern="/[\0-9]/" name="cCInfo"> 
+					 <span ng-show="myForm.cCInfo.$error.minlength">  *Required length is atleast 16 letters</span> 
+					 <span ng-show="myForm.cCInfo.$error.maxlength">  *Required length is atleast 16 letters</span>
+					 <br>
+					  
+					   <br> 
+					   Email: 
+					   <br> 
+					   <input type="text" ng-model="email" ng-minlength="11" ng-maxlength="15">
+					    <br>
+					<span ng-hide="hide3">*Enter you email</span>
+					<button ng-disabled="myForm.$invalid || myForm.$pristine">Place Order</button>
+					</form>
+					</div>
+					<div class="reviewOrder">
+					First Name:
+					<br>
+					{{fname}}
+					<br>
+					Last Name:
+					<br>
+					{{lname}}
+					<br>
+					Credit Card Number:
+					<br>
+					{{creditCaardInfo}}
+					<br>
+					Email:
+					<br>
+					{{email}}
+					
+					
+					</div>
